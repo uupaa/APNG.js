@@ -1,22 +1,25 @@
 // PNG test
 
 onmessage = function(event) {
-    self.TEST_DATA = event.data;
-    self.TEST_ERROR_MESSAGE = "";
+    self.unitTest = event.data; // { message, setting: { secondary, baseDir } }
 
-    if (!self.console) {
+    if (!self.console) { // polyfill WebWorkerConsole
         self.console = function() {};
+        self.console.dir = function() {};
         self.console.log = function() {};
         self.console.warn = function() {};
         self.console.error = function() {};
+        self.console.table = function() {};
     }
 
+    importScripts("../lib/WebModuleGlobal.js");
+
     importScripts("../node_modules/uupaa.hash.js/lib/Hash.js");
-    importScripts(".././test/wmtools.js");
+    importScripts("wmtools.js");
     importScripts("../lib/PNG.js");
     importScripts("../release/PNG.w.min.js");
-    importScripts("./testcase.js");
+    importScripts("testcase.js");
 
-    self.postMessage({ TEST_ERROR_MESSAGE: self.TEST_ERROR_MESSAGE || "" });
+    self.postMessage(self.unitTest);
 };
 
