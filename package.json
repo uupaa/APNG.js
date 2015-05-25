@@ -1,6 +1,6 @@
 {
   "name": "uupaa.png.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "PNG and APNG implementation.",
   "url": "https://github.com/uupaa/PNG.js",
   "keywords": ["PNG", "APNG", "decoder", "uupaa", "WebModule", "Unstable"],
