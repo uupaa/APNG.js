@@ -37,7 +37,7 @@ if (IN_BROWSER || IN_NW) {
 function testPNG_decode(test, pass, miss) {
 
     var source = new Uint8Array(0);
-    var data = PNG.decode(source, PNG.parse(source));
+    var data = WebModule.PNG.decode(source, WebModule.PNG.parse(source));
 
     test.done(pass());
 }
